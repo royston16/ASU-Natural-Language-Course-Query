@@ -1,0 +1,7 @@
+1. Find all graduate-level courses in the "Computer Science and Engineering" department
+
+2. Find all graduate-level courses in the Computer Science department with at least 3 credits.
+
+3. Find all graduate-level courses in the "Computer Science and Engineering" department that have atleast 5 seats available
+
+4. 

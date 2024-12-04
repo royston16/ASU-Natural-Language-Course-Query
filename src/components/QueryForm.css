@@ -1,0 +1,55 @@
+.query-form {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .query-form input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .query-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .query-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .response-container {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .response-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .response-container li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .response-container h3 {
+    margin: 0 0 10px;
+    color: #007bff;
+  }
+  
+  .response-container p {
+    margin: 5px 0;
+    line-height: 1.6;
+  }
+  
