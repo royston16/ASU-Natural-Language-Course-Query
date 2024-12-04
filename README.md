@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# ASU CourseQuery - A Natural Language Course Query Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CourseFinder is a powerful web application designed to make searching for ASU university courses simple and intuitive. By leveraging Elasticsearch, Flask, and React.js, this application allows users to query course data using natural language and access detailed information like schedules, seat availability, prerequisites, and more.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
+- **Natural Language Search**: Search for courses using conversational queries such as "Find graduate courses with 3 credits in CSE."
+- **Comprehensive Data**: Includes details such as department, schedule, seat availability, credits, prerequisites, and more.
+- **Fuzzy Matching**: Handles partial matches and typos for a seamless search experience.
+- **Real-Time Results**: Instant responses powered by Elasticsearch's robust querying capabilities.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
+1. **Elasticsearch**: Ensure Elasticsearch is running locally or accessible remotely.
+2. **Node.js and npm**: Required to run the frontend application.
+3. **Python**: For running backend scripts and the Flask server.
+4. **Environment Configuration**:
+   - Update `insertionScript.py` and `queryScript.py` with your Elasticsearch credentials and OpenAI API key.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Installation and Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+   ```bash
+   git remote add origin git@github.com:royston16/ASU-Natural-Language-Course-Query.git
+   ```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install Node.js dependencies:
+   ```bash
+   cd frontend
+   npm install
+   cd ..
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start Elasticsearch: Ensure Elasticsearch is running and accessible at the host and port specified in your scripts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Step 1: Insert Records into Elasticsearch
+Run the `insertionScript.py` to fetch course data and index it into Elasticsearch. Modify the term parameter in the script to insert records for the academic terms you want to query.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+python3 insertionScript.py
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Step 2: Start the Flask Backend
+Run the `queryScript.py` Flask server to handle natural language queries and API requests.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+python3 queryScript.py
+```
 
-## Learn More
+### Step 3: Start the React Frontend
+Navigate to the `frontend` directory and start the React application to provide the user interface.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd frontend
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## How It Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Data Collection & Indexing:
+The `insertionScript.py` fetches course data from the ASU catalog API and indexes it into Elasticsearch with a detailed mapping structure.
 
-### Analyzing the Bundle Size
+### Backend Query Processing:
+The `queryScript.py` Flask server translates natural language queries into Elasticsearch DSL using OpenAI’s API and executes the query.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Frontend User Interface:
+The React frontend provides a user-friendly interface for inputting natural language queries and displaying results in an organized manner.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Example Prompts
+Here are some example prompts you can try:
 
-### Advanced Configuration
+- "Find all graduate-level courses in the Computer Science department with at least 3 credits."
+- "List all courses available on the Tempe campus for term 2247."
+- "Show courses in the Computer Science and Engineering department with 5 seats available."
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Project Structure
+- **`insertionScript.py`**: Fetches data from the ASU catalog API and indexes it into Elasticsearch.
+- **`queryScript.py`**: Backend server for processing natural language queries and querying Elasticsearch.
+- **`frontend/`**: Contains React.js files for the user interface.
+  - **`index.js`**: Entry point for the React application.
+  - **`QueryForm.jsx`**: Component for the search form.
+  - **`QueryForm.css`**: Styling for the search form and results display.
+  - **`index.css`**: Global styles for the application.
+- **`prompts.txt`**: Sample prompts for testing the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Contributing
+Contributions are welcome! Feel free to fork this repository and submit pull requests. For major changes, please open an issue to discuss your ideas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
