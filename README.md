@@ -74,15 +74,4 @@ Here are some example prompts you can try:
 
 ---
 
-## Project Structure
-- **`insertionScript.py`**: Fetches data from the ASU catalog API and indexes it into Elasticsearch.
-- **`queryScript.py`**: Backend server for processing natural language queries and querying Elasticsearch.
-- **`frontend/`**: Contains React.js files for the user interface.
-  - **`index.js`**: Entry point for the React application.
-  - **`QueryForm.jsx`**: Component for the search form.
-  - **`QueryForm.css`**: Styling for the search form and results display.
-  - **`index.css`**: Global styles for the application.
-- **`prompts.txt`**: Sample prompts for testing the application.
-
----
 
