@@ -1,4 +1,4 @@
-# ASU CourseQuery - A Natural Language Course Query Application
+# ASU CourseFinder - A Natural Language Course Query Application
 
 CourseFinder is a powerful web application designed to make searching for ASU university courses simple and intuitive. By leveraging Elasticsearch, Flask, and React.js, this application allows users to query course data using natural language and access detailed information like schedules, seat availability, prerequisites, and more.
 
@@ -31,12 +31,12 @@ CourseFinder is a powerful web application designed to make searching for ASU un
 
 3. Install Node.js dependencies:
    ```bash
-   cd frontend
    npm install
-   cd ..
    ```
 
-4. Start Elasticsearch: Ensure Elasticsearch is running and accessible at the host and port specified in your scripts.
+4. Insert your OpenAI API key into a config file called `config.py`
+    
+5. Start Elasticsearch: Ensure Elasticsearch is running and accessible at the host and port specified in your scripts.
 
 ---
 
@@ -60,22 +60,8 @@ python3 queryScript.py
 Navigate to the `frontend` directory and start the React application to provide the user interface.
 
 ```bash
-cd frontend
 npm start
 ```
-
----
-
-## How It Works
-
-### Data Collection & Indexing:
-The `insertionScript.py` fetches course data from the ASU catalog API and indexes it into Elasticsearch with a detailed mapping structure.
-
-### Backend Query Processing:
-The `queryScript.py` Flask server translates natural language queries into Elasticsearch DSL using OpenAI’s API and executes the query.
-
-### Frontend User Interface:
-The React frontend provides a user-friendly interface for inputting natural language queries and displaying results in an organized manner.
 
 ---
 
@@ -99,7 +85,4 @@ Here are some example prompts you can try:
 - **`prompts.txt`**: Sample prompts for testing the application.
 
 ---
-
-## Contributing
-Contributions are welcome! Feel free to fork this repository and submit pull requests. For major changes, please open an issue to discuss your ideas.
 
